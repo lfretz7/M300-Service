@@ -1,4 +1,4 @@
-# M300-Service
+# M300-Service Informationen
 Dieses Repository wird als Cloud-Speicher für das Modul 300 verwendet.
 
 
