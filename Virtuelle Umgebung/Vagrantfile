@@ -58,8 +58,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		sudo apt-get install libapache2-mod-proxy-html
 		sudo apt-get install libxml2-dev
 		
+		#Apache-Webserver neu starten
+		sudo service apache2 restart
+			
 		#Apache Module Aktivieren
-
+		sudo a2enmod proxy
+    	sudo a2enmod proxy_html
+    	sudo a2enmod proxy_http 
+		
 		#Dateieintrag erstellen
 		echo 'web01 localhost' > /etc/apache2/apache2.conf
 
