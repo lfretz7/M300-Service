@@ -53,6 +53,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	 	sudo ufw allow from 192.168.0.204 to any port 22
 		#UFW-Dienst einschalten
 		sudo ufw enable
+
+		#Reverse Proxy Installation
+		sudo apt-get install libapache2-mod-proxy-html
+		sudo apt-get install libxml2-dev
+		
+		#Apache Module Aktivieren
+
+		#Dateieintrag erstellen
+		echo 'web01 localhost' > /etc/apache2/apache2.conf
+
+		#Apache-Webserver neu starten
+		sudo service apache2 restart
+
+		
 SHELL
 	end  
  end
