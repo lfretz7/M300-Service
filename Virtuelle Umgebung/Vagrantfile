@@ -45,6 +45,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		sudo a2enconf adminer.conf 
 		sudo service apache2 restart 
 	  echo '127.0.0.1 localhost web01\n192.168.55.100 db01' > /etc/hosts
+	  
+	  #Installation der UFW Firewall
+		sudo apt-get install -y ufw
+		#Port Konfiguration
+		sudo ufw allow 80/tcp
+	 	sudo ufw allow from 192.168.0.204 to any port 22
+		#UFW-Dienst einschalten
+		sudo ufw enable
 SHELL
 	end  
  end
