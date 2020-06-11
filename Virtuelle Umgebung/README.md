@@ -34,9 +34,13 @@ Das MySQL User Interface ist via [http://localhost:8080/adminer.php](http://loca
 
 ### Tests
 
-* keine
+* Webserver per Ping erreichbar
+* Datenbank per Ping erreichbar
+* MySQl User Interface über [http://localhost:8080/adminer.php](http://localhost:8080/adminer.php) erreichbar.
+* 
 
 ### Sicherheit
 
 * Datenbank Server bzw. MySQL ist mit Password geschützt.
 * Der Web Server ist offen und mittels ungeschütztem HTTP Protokoll erreichbar.
+* UFW Firewall eingerichtet.

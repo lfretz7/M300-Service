@@ -22,3 +22,10 @@ mysql -uroot -pS3cr3tp4ssw0rd <<%EOF%
 
 # Restart fuer Konfigurationsaenderung
 sudo service mysql restart
+
+#Installation der UFW Firewall
+sudo apt-get install -y ufw
+#Port Konfiguration
+sudo ufw allow from 192.168.55.101 to any port 3306
+#UFW-Dienst einschalten
+sudo ufw enable
