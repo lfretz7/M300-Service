@@ -83,6 +83,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		ProxyPass /master http://master
 		ProxyPassReverse /master http://master
 
+
+		# Public Key Verfahren
+		sudo su - admin01
+		
+		# Key erstellen
+		ssh-keygen -t rsa -b 4096 
+
+		# Key auf Zielsystem kopieren
+		ssh-copy-id -i ~/.ssh/id_rsa.pub admin01@db01 
+
 		
 
 SHELL
