@@ -39,9 +39,11 @@ Das MySQL User Interface ist via [http://localhost:8080/adminer.php](http://loca
 * MySQl User Interface über [http://localhost:8080/adminer.php](http://localhost:8080/adminer.php) erreichbar.
 * Keine Ports erreichbar ausser 80 und 22.
 * UFW Firewall vorhanden
+* SSH Zugriff auf web01 und db01 VM
 
 ### Sicherheit
 
 * Datenbank Server bzw. MySQL ist mit Password geschützt.
 * Der Web Server ist offen und mittels ungeschütztem HTTP Protokoll erreichbar.
 * UFW Firewall eingerichtet. (siehe Github-Commits)
+* Reverse Proxy implementiert (siehe Github-Commits)
