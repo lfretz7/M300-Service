@@ -29,3 +29,21 @@ sudo apt-get install -y ufw
 sudo ufw allow from 192.168.55.101 to any port 3306
 #UFW-Dienst einschalten
 sudo ufw enable
+
+# SSH Tunnel einrichten
+
+#Weiterleitung von Port 8000 auf dem lokalen System (database/db01) an den Webserver web/web01
+# Wechsel auf User admin01
+sudo su - admin01
+# in der VM
+ssh -L 8000:localhost:80 web01 -N &
+netstat -tulpen
+curl http://localhost:8000
+
+# Benutzern auf web/web01 wird ermöglicht, über localhost:3307 auf den MySQL-Server auf database/db01 zuzugreifen
+# in der VM database
+ssh -R 3307:localhost:3306 web01 -N &
+ssh web01
+# in der VM web
+netstat -tulpen
+curl http://localhost:3307
