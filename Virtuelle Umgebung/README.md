@@ -37,6 +37,7 @@ Das MySQL User Interface ist via [http://localhost:8080/adminer.php](http://loca
 * Webserver per Ping erreichbar
 * Datenbank per Ping erreichbar
 * MySQl User Interface über [http://localhost:8080/adminer.php](http://localhost:8080/adminer.php) erreichbar.
+* Login in Datenbank möglich: Server: 192.168.55.100, Benutzer: root, Passwort: admin
 * Keine Ports erreichbar ausser 80 und 22.
 * UFW Firewall vorhanden
 * SSH Zugriff auf web01 und db01 VM
