@@ -72,7 +72,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		#Apache-Webserver neu starten
 		sudo service apache2 restart
 
+		# Allgemeine Proxy Einstellungen
+		ProxyRequests Off
+		<Proxy *>
+			Order deny,allow
+			Allow from all
+		</Proxy>
+	
+		# Weiterleitungen master
+		ProxyPass /master http://master
+		ProxyPassReverse /master http://master
+
 		
+
 SHELL
 	end  
  end
