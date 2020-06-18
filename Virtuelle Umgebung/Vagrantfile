@@ -93,7 +93,39 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		# Key auf Zielsystem kopieren
 		ssh-copy-id -i ~/.ssh/id_rsa.pub admin01@db01 
 
+
+		# Apache sichern
+
+		# Default Konfiguration in /etc/apache2/sites-available freischalten (wird nach sites-enabled verlinkt)
+		sudo a2ensite default-ssl.conf
+
+		# SSL Modul in Apache2 aktivieren
+		sudo a2enmod ssl
+	
+		# Optional HTTP deaktivieren
+		sudo a2dissite 000-default.conf 
+	
+		# Datei /etc/apache2/ports.conf editieren und <Listen 80> durch Voranstellen von # deaktivieren
+		sudo nano /etc/apache2/ports.conf
+	
+		# Apache Server frisch starten
+		sudo service apache2 restart
+
+
+		# User/Password Authentisierung aktivieren
+
+		# .htpasswd Datei erzeugen (ab dem zweiten User ohne -c), Password wird verlangt                        
+		sudo htpasswd -c /etc/apache2/.htpasswd guest
+
+		# /etc/apache2/sites-enabled/default-ssl.conf Editieren und vor </VirtualHost> folgendes Einfügen
+		<Directory "/var/www/html">
+				AuthType Basic
+				AuthName "Restricted Content"
+				AuthUserFile /etc/apache2/.htpasswd
+				Require valid-user
+		</Directory>
 		
+
 
 SHELL
 	end  
